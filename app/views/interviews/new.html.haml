@@ -12,15 +12,18 @@
       %li
         %h1
           2.薬で副作用が起きたことがありますか？
-          %br/
-          薬の名前
+        薬の名前
         %input.interviewsform__in__se_medicine{:placeholder => "例）クラビット", :type => "text"}
         %h1
-          症状
+        症状
         %input.interviewsform__in__se_symptom{:placeholder => "例）お腹を下したことがあります", :type => "text"}
       %li
         %h1
-          3.現在、他の医療機関で治療中の病気はありますか？
+          3.アレルギーはありますか？
+        %input.interviewsform__in__allergy{:placeholder => "例）セフェム系抗生物質、食物、動物など", :type => "text"}
+      %li
+        %h1
+          4.現在、他の医療機関で治療中の病気はありますか？
           %br/
           =check_box_tag :medical_history1
           =label_tag :medical_history1, "高血圧"
@@ -64,7 +67,7 @@
       %li
         %h1
           5.お薬手帳に記載してあるもの以外に、現在服用している薬やサプリメントはありますか？
-        %input.profilesform__in__sex{:placeholder => "例）女性・男性・回答しない", :type => "text"}
+        %input.profilesform__in__supplement{:placeholder => "例）ビタミン（A,Cなど）、にんにく卵黄", :type => "text"}
       %li
         %h1
           6.自動車運転など、生活に当てはまるものがあれば教えてください。
@@ -134,7 +137,7 @@
       %li
         %h1
           12.小児（子ども）の方は、現在の体重を教えてください。
-        %input.profilesform__in__telephone{:placeholder => "例）090-1234-5678", :type => "text"}
+        %input.interviewsform__in__child_weight{:placeholder => "例）10kg", :type => "text"}
       %li
         %h1
           13.ジェネリック医薬品（後発品）に変更できる処方箋であった場合、変更を希望されますか？
