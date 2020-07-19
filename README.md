@@ -34,6 +34,7 @@
 |diagnosis|string||
 |se_medicine|string||
 |se_symptom|string||
+|allergy|string||
 |medical_history|string||
 |supplement|string||
 |life_details|string||

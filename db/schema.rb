@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200718054926) do
+ActiveRecord::Schema.define(version: 20200719122914) do
 
   create_table "interviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20200718054926) do
     t.string   "generic",         null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "allergy"
     t.index ["user_id"], name: "index_interviews_on_user_id", using: :btree
   end
 
