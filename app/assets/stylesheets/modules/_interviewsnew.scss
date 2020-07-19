@@ -1,5 +1,5 @@
-.profilesform {
-  width: 300px;
+.interviewsform {
+  width: 500px;
   margin: 0 auto;
   &__in {
     width: 100%;
@@ -21,9 +21,9 @@
         h2{
           display: flex;
         }
-        input {
+        input[type=text] {
           height: 40px;
-          width: 300px;
+          width: 500px;
           margin-right: 10px;
         }
         button {
