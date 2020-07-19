@@ -1,1 +1,15 @@
-aaa
+.top
+  .top__header
+    = link_to icon('fas ', 'clinic-medical'), root_path
+  .top__main
+    .top__main__in
+      .top__main__in__upper
+        = link_to image_tag("mediask_logo_big.png", class: "logobig"), root_path
+      .top__main__in__downer
+        %ul
+          %li
+          問診票を記入する
+          %li
+          = link_to "新規登録（初めての方）" ,root_path
+          %li
+          = link_to "ログイン（２度目以降の方）" ,root_path
