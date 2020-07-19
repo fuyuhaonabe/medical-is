@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   end
 
   resources :interviews do
+    collection do
+      get :complete
+    end
   end
   
 end
