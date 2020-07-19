@@ -2,25 +2,28 @@
   = render "/layouts/header"
 .breadcrumbs
   = render "/layouts/breadcrumbs"
-.userform
-  .userform__in
+.usersform
+  .usersform__in
     %ul
       %li
         %h1
           ニックネーム
-        %input.userform__in__nickname{:name => "nickname", :placeholder => "例）薬局ちゃん", :type => "nickname"}
+          %span 必須
+        %input.usersform__in__nickname{:name => "nickname", :placeholder => "例）薬局ちゃん", :type => "text"}
       %li
         %h1
           メールアドレス
-        %input.userform__in__email{:name => "email", :placeholder => "例）yakkyoku@yakkyoku.com", :type => "email"}
+          %span 必須
+        %input.usersform__in__email{:name => "email", :placeholder => "例）yakkyoku@yakkyoku.com", :type => "text"}
       %li
         %h1
           パスワード
-        %input.userform__in__password{:name => "password", :placeholder => "半角英数字4~10文字", :type => "password"}
+          %span 必須
+        %input.usersform__in__password{:name => "password", :placeholder => "半角英数字4~10文字", :type => "text"}
       %li
         %br/
-        %button.userform__in__send{:name => "submit", :placeholder => "送信", :type => "submit"}
-          送信
+        %button.usersform__in__send{:name => "submit", :placeholder => "送信", :type => "submit"}
+          患者情報登録へ
 
 
 -# %h2 Sign up
