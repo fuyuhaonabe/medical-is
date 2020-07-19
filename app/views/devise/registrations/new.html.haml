@@ -1,21 +1,46 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.header
+  = render "/layouts/header"
+.breadcrumbs
+  = render "/layouts/breadcrumbs"
+.userform
+  .userform__in
+    %ul
+      %li
+        %h1
+          ニックネーム
+        %input.userform__in__nickname{:name => "nickname", :placeholder => "例）薬局ちゃん", :type => "nickname"}
+      %li
+        %h1
+          メールアドレス
+        %input.userform__in__email{:name => "email", :placeholder => "例）yakkyoku@yakkyoku.com", :type => "email"}
+      %li
+        %h1
+          パスワード
+        %input.userform__in__password{:name => "password", :placeholder => "半角英数字4~10文字", :type => "password"}
+      %li
+        %br/
+        %button.userform__in__send{:name => "submit", :placeholder => "送信", :type => "submit"}
+          送信
+
+
+-# %h2 Sign up
+-# = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+-#   = render "devise/shared/error_messages", resource: resource
+-#   .field
+-#     = f.label :email
+-#     %br/
+-#     = f.email_field :email, autofocus: true, autocomplete: "email"
+-#   .field
+-#     = f.label :password
+-#     - if @minimum_password_length
+-#       %em
+-#         (#{@minimum_password_length} characters minimum)
+-#     %br/
+-#     = f.password_field :password, autocomplete: "new-password"
+-#   .field
+-#     = f.label :password_confirmation
+-#     %br/
+-#     = f.password_field :password_confirmation, autocomplete: "new-password"
+-#   .actions
+-#     = f.submit "Sign up"
+-# = render "devise/shared/links"

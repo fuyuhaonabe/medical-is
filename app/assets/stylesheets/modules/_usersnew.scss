@@ -1,0 +1,36 @@
+.userform {
+  width: 300px;
+  margin: 0 auto;
+  &__in {
+    width: 100%;
+    ul {
+      li {
+        font-size: 16px;
+        margin-bottom: 15px;
+        h1 {
+          font-size: 14px;
+          font-weight: bold;
+        }
+        input {
+          height: 40px;
+          width: 300px;
+        }
+        button {
+          font-size: 16px;
+          width: 300px;
+          display: block;
+          margin-top: 8px;
+          margin-left: auto;
+          margin-right: auto;
+          border: 1px solid rgb(86, 201, 105);
+          background: rgb(86, 201, 105);
+          color: #fff;
+          line-height: 40px;
+          padding: 5px;
+          border-radius: 4px;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
