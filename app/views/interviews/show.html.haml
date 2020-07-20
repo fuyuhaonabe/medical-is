@@ -6,52 +6,58 @@
   .interviews_show__in
     %table.interviews_show__in__users
       %tr
-        %td
+        %td.left
           ニックネーム
-        %td
+        %td.right
           薬局ちゃん
       %tr
-        %td
+        %td.left
           メールアドレス
-        %td
+        %td.right
           yakkyoku@yakkyoku.com
       %tr
-        %td
+        %td.left
           パスワード
-        %td
+        %td.right
           *******
+    %br/
     %table.interviews_show__in__profiles
       %tr
-        %td
+        %td.left
           お名前（全角）
-        %td
+        %td.right
           薬局 花子
       %tr
-        %td
+        %td.left
           お名前（カナ）
-        %td
+        %td.right
           ヤッキョク ハナコ
       %tr
-        %td
+        %td.left
           生年月日
-        %td
+        %td.right
           1991 / 12 / 6 
       %tr
-        %td
+        %td.left
           性別
-        %td
+        %td.right
           女性
       %tr
-        %td
+        %td.left
           住所
-        %td
+        %td.right
           大阪府 大阪市 北区中崎町 1丁目1-1 メディカルマンション101号室
       %tr
-        %td
+        %td.left
           電話番号
-        %td
-    登録情報を編集する
+        %td.right
+          090-1234-5678
+    .interviews_show__in__edit
+      = link_to "登録情報を編集する" ,edit_profile_path
     .interviews_show__in__interviews
-      過去の問診票
+      %h1
+        過去の問診票
       %br/
-      2020 / 7 / 5 記入分
+      = link_to "2020/7/5 記入分" ,root_path
+    .interviews_show__in__back
+      = link_to "トップページに戻る" ,root_path
