@@ -34,7 +34,6 @@ class Profile < ApplicationRecord
 
   validates :telephone_number,
   presence: true,
-  format: { with: /\A[0-9]+\z/ },
-
+  format: { with: /\A[0-9]+\z/ }
 
 end
