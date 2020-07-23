@@ -1,12 +1,11 @@
 class ProfilesController < ApplicationController
   def new
-    @profile = Profile.new
+    @profile = Profile.new(profile_params)
   end
 
   def create
-    binding.pry
     @profile = Profile.new(profile_params)
-    unless @profiles.valid?
+    unless @profile.valid?
       render :new and return
     end
     @profile.save

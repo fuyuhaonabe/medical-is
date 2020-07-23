@@ -18,4 +18,7 @@ class User < ApplicationRecord
   presence: true,                     # 必須
   length: { minimum: 7 },            # 7文字以上
   format: { with: /\A[a-z0-9]+\z/i }  # 半角英数字のみ
+
+  has_one :profile
+
 end

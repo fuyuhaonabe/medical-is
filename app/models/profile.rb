@@ -17,8 +17,7 @@ class Profile < ApplicationRecord
   format: { with: /\A[ァ-ヶー－]+\z/ }
   
   validates :birth,
-  presence: true,
-  format: { with: /\A[0-9]+\z/ }
+  presence: true
 
   validates :prefecuture,
   presence: true,
@@ -29,11 +28,12 @@ class Profile < ApplicationRecord
   format: { with: /\A[ぁ-んァ-ン一-龥]/ }   
   
   validates :address,
-  presence: true,
-  format: { with: /\A[ぁ-んァ-ン一-龥]/ } 
+  presence: true
 
   validates :telephone_number,
   presence: true,
   format: { with: /\A[0-9]+\z/ }
+
+  belongs_to :user
 
 end

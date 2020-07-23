@@ -9,6 +9,7 @@
 |email|string|null: false|
 ### Association
 - has_many :interviews
+- has_one :profile
 
 ## profilesテーブル
 |Column|Type|Options|
@@ -26,6 +27,8 @@
 |address|string|null: false|
 |building_name|string||
 |telephone_number|string|null: false|
+### Association
+- belongs_to :user
 
 ## interviewsテーブル
 |Column|Type|Options|
