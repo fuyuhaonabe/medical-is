@@ -4,59 +4,63 @@
   = render "/layouts/breadcrumbs"
 .profilesform
   .profilesform__in
-    %ul
-      %li
+    = form_for [@user, @profile] do |f|
+      .profilesform__in__name
         %h1
           お名前（全角）
           %span 必須
         %h2
-          %input.profilesform__in__family_name{:placeholder => "例）薬局", :type => "text"}
-          %input.profilesform__in__first_name{:placeholder => "例）花子", :type => "text"}
-      %li
+          = f.text_field :family_name, class: 'input', placeholder: '例）薬局'
+          = f.text_field :first_name, class: 'input', placeholder: '例）花子'
+      .profilesform__in__kana
         %h1
           お名前（カナ）
           %span 必須
         %h2
-          %input.profilesform__in__family_name_kana{:placeholder => "例）ヤッキョク", :type => "text"}
-          %input.profilesform__in__first_name_kana{:placeholder => "例）ハナコ", :type => "text"}
-      %li
+          = f.text_field :family_name_kana, class: 'input', placeholder: '例）ヤッキョク'
+          = f.text_field :first_name_kana, class: 'input', placeholder: '例）ハナコ'
+      .profilesform__in__birth
         %h1
           生年月日
           %span 必須
-        %input.profilesform__in__birth{:placeholder => "例）19911206", :type => "text"}
-      %li
+          %br/
+          = f.date_select :birth, class: 'inputbirth', use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1), date_separator: '/ '
+      .profilesform__in__sex
         %h1
           性別
-        %input.profilesform__in__sex{:placeholder => "例）女性・男性・回答しない", :type => "text"}
-      %li
+        = f.radio_button :sex, "男性", class: 'inputsex'
+        = f.label :sex, "男性", {value: "男性", style: "display: inline-block;"}
+        = f.radio_button :sex, "女性", class: 'inputxse'
+        = f.label :sex, "女性", {value: "女性", style: "display: inline-block;"}
+        = f.radio_button :sex, "回答しない", class: 'inputsex'
+        = f.label :sex, "回答しない", {value: "回答しない", style: "display: inline-block;"}
+      .profilesform__in__zipcode
         %h1
           郵便番号
-        %input.profilesform__in__zipcode{:placeholder => "例）123-4567", :type => "text"}
-      %li
+        = f.text_field :zip_code, class: 'input', placeholder: '例）123-4567'
+      .profilesform__in__prefecuture
         %h1
           都道府県
           %span 必須
-        %input.profilesform__in__prefecuture{:placeholder => "例）大阪府", :type => "text"}
-      %li
+        = f.text_field :prefecuture, class: 'input', placeholder: '例）大阪府'
+      .profilesform__in__city
         %h1
           市区町村
           %span 必須
-        %input.profilesform__in__city{:placeholder => "例）大阪市北区中崎町", :type => "text"}
-      %li
+        = f.text_field :city, class: 'input', placeholder: '例）大阪市北区中崎町'
+      .profilesform__in__address
         %h1
           番地
           %span 必須
-        %input.profilesform__in__address{:placeholder => "例）１丁目１−１", :type => "text"}
-      %li
+        = f.text_field :address, class: 'input', placeholder: '例）１丁目１−１'
+      .profilesform__in__buildingname
         %h1
           建物名
-        %input.profilesform__in__buildingname{:placeholder => "例）メディカルマンション101号室", :type => "text"}
-      %li
+        = f.text_field :building_name, class: 'input', placeholder: '例）メディカルマンション101号室'
+      .profilesform__in__telephone
         %h1
           電話番号
           %span 必須
-        %input.profilesform__in__telephone{:placeholder => "例）090-1234-5678", :type => "text"}
-      %li
-        %br/
-        %button.usersform__in__send{:name => "submit", :placeholder => "送信", :type => "submit"}
-          問診の回答へ
+        = f.text_field :telephone_number, class: 'input', placeholder: '例）090-1234-5678'
+      .profilesform__in__send
+        = f.submit '問診の回答へ', class: 'button'

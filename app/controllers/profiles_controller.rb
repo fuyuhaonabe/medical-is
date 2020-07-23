@@ -1,14 +1,15 @@
 class ProfilesController < ApplicationController
   def new
-    @profiles = Profile.new
+    @profile = Profile.new
   end
 
   def create
-    @profiles = Profile.new(prorifle_params)
+    binding.pry
+    @profile = Profile.new(profile_params)
     unless @profiles.valid?
       render :new and return
     end
-    @profiles.save
+    @profile.save
     redirect_to  new_interview_path(@user) and return
   end
 
