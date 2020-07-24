@@ -4,150 +4,174 @@
   = render "/layouts/breadcrumbs"
 .interviewsform
   .interviewsform__in
-    %ul
-      %li
+    = form_for [@interview] do |f|
+      .interviewsform__in__diagnosis
         %h1
           1.今回病院にかかられた症状、診断名が分かればご入力ください。
-        %input.interviewsform__in__diagnosis{:placeholder => "例）鼻水が出る、熱っぽい、過敏性腸症候群", :type => "text"}
-      %li
+        = f.text_field :diagnosis, class: 'input', placeholder: '例）鼻水が出る、熱っぽい、過敏性腸症候群'
+      .interviewsform__in__se_medicine
         %h1
           2.薬で副作用が起きたことがありますか？
-        薬の名前
-        %input.interviewsform__in__se_medicine{:placeholder => "例）クラビット", :type => "text"}
+          %br/
+          薬の名前
+        = f.text_field :se_medicine, class: 'input', placeholder: '例）クラビット'
+      .interviewsform__in__se_symptom
         %h1
-        症状
-        %input.interviewsform__in__se_symptom{:placeholder => "例）お腹を下したことがあります", :type => "text"}
-      %li
+          症状
+        = f.text_field :se_symptom, class: 'input', placeholder: '例）お腹を下したことがあります'
+      .interviewsform__in__allergy
         %h1
           3.アレルギーはありますか？
-        %input.interviewsform__in__allergy{:placeholder => "例）セフェム系抗生物質、食物、動物など", :type => "text"}
-      %li
+        = f.text_field :allergy, class: 'input', placeholder: '例）セフェム系抗生物質、食物、動物、花粉症など'
+      .interviewsform__in__medical_history
         %h1
           4.現在、他の医療機関で治療中の病気はありますか？
-          %br/
-          =check_box_tag :medical_history1
-          =label_tag :medical_history1, "高血圧"
-          %br/
-          =check_box_tag :medical_history2
-          =label_tag :medical_history2, "心臓疾患"
-          %br/
-          =check_box_tag :medical_history3
-          =label_tag :medical_history3, "脳梗塞"
-          %br/
-          =check_box_tag :medical_history4
-          =label_tag :medical_history4, "脂質異常症"
-          %br/
-          =check_box_tag :medical_history5
-          =label_tag :medical_history5, "糖尿病"
-          %br/
-          =check_box_tag :medical_history6
-          =label_tag :medical_history6, "肝臓病"
-          %br/
-          =check_box_tag :medical_history7
-          =label_tag :medical_history7, "腎臓病"
-          %br/
-          =check_box_tag :medical_history8
-          =label_tag :medical_history8, "緑内障"
-          %br/
-          =check_box_tag :medical_history9
-          =label_tag :medical_history9, "前立腺疾患"
-          %br/
-          =check_box_tag :medical_history10
-          =label_tag :medical_history10, "甲状腺疾患"
-          %br/
-          =check_box_tag :medical_history11
-          =label_tag :medical_history11, "胃・十二指腸潰瘍"
-          %br/
-          =check_box_tag :medical_history12
-          =label_tag :medical_history12, "リウマチ"
-          %br/
-          =check_box_tag :medical_history13
-          =label_tag :medical_history13, "骨粗しょう症"
-        %input.interviewsform__in__medical_history{:placeholder => "その他あれば入力してください", :type => "text"}
-      %li
+        %label
+          = f.check_box :medical_history ,{multiple: true}, "高血圧",nil
+          高血圧
+        %br/
+        %label
+          = f.check_box :medical_history ,{multiple: true}, "心臓疾患",nil
+          心臓疾患
+        %br/
+        %label
+          = f.check_box :medical_history ,{multiple: true}, "脳梗塞",nil
+          脳梗塞
+        %br/
+        %label
+          = f.check_box :medical_history ,{multiple: true}, "脂質異常症",nil
+          脂質異常症
+        %br/
+        %label
+          = f.check_box :medical_history ,{multiple: true}, "糖尿病",nil
+          糖尿病
+        %br/
+        %label
+          = f.check_box :medical_history ,{multiple: true}, "肝臓病",nil
+          肝臓病
+        %br/
+        %label
+          = f.check_box :medical_history ,{multiple: true}, "腎臓病",nil
+          腎臓病
+        %br/
+        %label
+          = f.check_box :medical_history ,{multiple: true}, "緑内障",nil
+          緑内障
+        %br/
+        %label
+          = f.check_box :medical_history ,{multiple: true}, "前立腺疾患",nil
+          前立腺疾患
+        %br/
+        %label
+          = f.check_box :medical_history ,{multiple: true}, "甲状腺疾患",nil
+          甲状腺疾患
+        %br/
+        %label
+          = f.check_box :medical_history ,{multiple: true}, "胃・十二指腸潰瘍",nil
+          胃・十二指腸潰瘍
+        %br/
+        %label
+          = f.check_box :medical_history ,{multiple: true}, "リウマチ",nil
+          リウマチ
+        %br/
+        %label
+          = f.check_box :medical_history ,{multiple: true}, "骨粗しょう症",nil
+          骨粗しょう症
+        %br/
+        その他
+        = f.text_field :medical_history_etc, class: 'input', placeholder: 'その他あれば入力してください'
+      .profilesform__in__supplement
         %h1
           5.お薬手帳に記載してあるもの以外に、現在服用している薬やサプリメントはありますか？
-        %input.profilesform__in__supplement{:placeholder => "例）ビタミン（A,Cなど）、にんにく卵黄", :type => "text"}
-      %li
+        = f.text_field :supplement, class: 'input', placeholder: '例）ビタミン（A,Cなど）、にんにく卵黄'
+      .profilesform__in__life_details
         %h1
           6.自動車運転など、生活に当てはまるものがあれば教えてください。
-          %br/
-          =check_box_tag :life_details1
-          =label_tag :life_details1, "自動車の運転をする"
-          %br/
-          =check_box_tag :life_details2
-          =label_tag :life_details2, "視力をよく使う"
-          %br/
-          =check_box_tag :life_details3
-          =label_tag :life_details3, "高所など危険な場所での仕事をする"
-          %br/
-          =check_box_tag :life_details4
-          =label_tag :life_details4, "夜勤などで不規則"
-      %li
+        %label
+          = f.check_box :life_details ,{multiple: true}, "自動車の運転をする",nil
+          自動車の運転をする
+        %br/
+        %label
+          = f.check_box :life_details ,{multiple: true}, "視力をよく使う",nil
+          視力をよく使う
+        %br/
+        %label
+          = f.check_box :life_details ,{multiple: true}, "高所など危険な場所での仕事をする",nil
+          高所など危険な場所での仕事をする
+        %br/
+        %label
+          = f.check_box :life_details ,{multiple: true}, "夜勤などで不規則",nil
+          夜勤などで不規則
+      .interviewsform__in__drinking
         %h1
           7.お酒は飲みますか？
-          %br/
-          %input.interviewsform__in__drinking{:name => "drinking", :id =>"drinking1", :type => "radio"}
-          =label_tag :drinking1, "よく飲む"
-          %input.interviewsform__in__drinking{:name => "drinking", :id =>"drinking2", :type => "radio"}
-          =label_tag :drinking2, "たまに飲む"
-          %input.interviewsform__in__drinking{:name => "drinking", :id =>"drinking3", :type => "radio"}
-          =label_tag :drinking3, "全く飲まない"
-      %li
+        %label
+          = f.radio_button :drinking, "よく飲む"
+          よく飲む
+        %label
+          = f.radio_button :drinking, "たまに飲む"
+          たまに飲む
+        %label
+          = f.radio_button :drinking, "全く飲まない"
+          全く飲まない
+      .interviewsform__in__smoking
         %h1
           8.タバコは吸いますか？
-          %br/
-          %input.interviewsform__in__smoking{:name => "smoking", :id =>"smoking1", :type => "radio"}
-          =label_tag :smoking1, "よく吸う"
-          %input.interviewsform__in__smoking{:name => "smoking", :id =>"smoking2", :type => "radio"}
-          =label_tag :smoking2, "たまに吸う"
-          %input.interviewsform__in__smoking{:name => "smoking", :id =>"smoking3", :type => "radio"}
-          =label_tag :smoking3, "全く吸わない"
-      %li
+        %label
+          = f.radio_button :smoking, "よく吸う"
+          よく吸う
+        %label
+          = f.radio_button :smoking, "たまに吸う"
+          たまに吸う
+        %label
+          = f.radio_button :smoking, "全く吸わない"
+          全く吸わない
+      .interviewsform__in__dosage_form
         %h1
           9.飲めない形の薬があれば教えてください
-          %br/
-          =check_box_tag :dosage_form1
-          =label_tag :dosage_form1, "粉薬"
-          %br/
-          =check_box_tag :dosage_form2
-          =label_tag :dosage_form2, "錠剤"
-          %br/
-          =check_box_tag :dosage_form3
-          =label_tag :dosage_form3, "カプセル"
-          %br/
-          =check_box_tag :dosage_form4
-          =label_tag :dosage_form4, "水薬"
-      %li
+        %label
+          = f.check_box :dosage_form ,{multiple: true}, "粉薬",nil
+          粉薬
+        %label
+          = f.check_box :dosage_form ,{multiple: true}, "錠剤",nil
+          錠剤
+        %label
+          = f.check_box :dosage_form ,{multiple: true}, "カプセル",nil
+          カプセル
+        %label
+          = f.check_box :dosage_form ,{multiple: true}, "水薬",nil
+          水薬
+      .interviewsform__in__pregnancy
         %h1
           10.女性の方に伺います。妊娠中、または妊娠している可能性がありますか？
-          %br/
-          %input.interviewsform__in__pregnancy{:name => "pregnancy", :id =>"pregnancy1", :type => "radio"}
-          =label_tag :pregnancy1, "はい"
-          %input.interviewsform__in__pregnancy{:name => "pregnancy", :id =>"pregnancy2", :type => "radio"}
-          =label_tag :pregnancy2, "いいえ"
-      %li
+        %label
+          = f.radio_button :pregnancy, "妊娠している"
+          はい
+        %label
+          = f.radio_button :pregnancy, "妊娠していない"
+          いいえ
+      .interviewsform__in__breastfeeding
         %h1
           11.女性の方に伺います。現在、授乳中ですか？
-          %br/
-          %input.interviewsform__in__breastfeeding{:name => "breastfeeding", :id =>"breastfeeding1", :type => "radio"}
-          =label_tag :breastfeeding1, "はい"
-          %input.interviewsform__in__breastfeeding{:name => "breastfeeding", :id =>"breastfeeding2", :type => "radio"}
-          =label_tag :breastfeeding2, "いいえ"
-      %li
+        %label
+          = f.radio_button :breastfeeding, "授乳中である"
+          はい
+        %label
+          = f.radio_button :breastfeeding, "授乳中でない"
+          いいえ
+      .interviewsform__in__child_weight
         %h1
           12.小児（子ども）の方は、現在の体重を教えてください。
-        %input.interviewsform__in__child_weight{:placeholder => "例）10kg", :type => "text"}
-      %li
+        = f.text_field :child_weight, class: 'input', placeholder: '例）10kg'
+      .interviewsform__in__generic
         %h1
           13.ジェネリック医薬品（後発品）に変更できる処方箋であった場合、変更を希望されますか？
           %span 必須
-          %br/
-          %input.interviewsform__in__generic{:name => "generic", :id =>"generic1", :type => "radio"}
-          =label_tag :generic1, "はい"
-          %input.interviewsform__in__generic{:name => "generic", :id =>"generic2", :type => "radio"}
-          =label_tag :generic2, "いいえ"
-      %li
-        %br/
-        %button.usersform__in__send{:name => "submit", :placeholder => "送信", :type => "submit"}
-          回答を送信する
+        %label
+          = f.radio_button :generic, "ジェネリック医薬品希望"
+          はい
+        %label
+          = f.radio_button :generic, "先発品希望"
+          いいえ
+      .usersform__in__send
+        = f.submit '回答を送信する', class: 'button'
