@@ -5,6 +5,7 @@
 .interviewsform
   .interviewsform__in
     = form_for [@interview] do |f|
+      = render 'layouts/validationerror', model: f.object
       .interviewsform__in__diagnosis
         %h1
           1.今回病院にかかられた症状、診断名が分かればご入力ください。
@@ -110,13 +111,13 @@
       .interviewsform__in__drinking
         %h1
           7.お酒は飲みますか？
-        %labell{class:"radiocheck"}
+        %label{class:"radiocheck"}
           = f.radio_button :drinking, "よく飲む"
           よく飲む
-        %labell{class:"radiocheck"}
+        %label{class:"radiocheck"}
           = f.radio_button :drinking, "たまに飲む"
           たまに飲む
-        %labell{class:"radiocheck"}
+        %label{class:"radiocheck"}
           = f.radio_button :drinking, "全く飲まない"
           全く飲まない
         %br/
@@ -182,10 +183,10 @@
         %h1
           13.ジェネリック医薬品（後発品）に変更できる処方箋であった場合、変更を希望されますか？
           %span 必須
-        %labell{class:"radiocheck"}
+        %label{class:"radiocheck"}
           = f.radio_button :generic, "ジェネリック医薬品希望"
           はい
-        %labell{class:"radiocheck"}
+        %label{class:"radiocheck"}
           = f.radio_button :generic, "先発品希望"
           いいえ
       .interviewsform__in__send
