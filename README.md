@@ -39,6 +39,7 @@
 |se_symptom|string||
 |allergy|string||
 |medical_history|string||
+|medical_history_etc|string||
 |supplement|string||
 |life_details|string||
 |drinking|string||
