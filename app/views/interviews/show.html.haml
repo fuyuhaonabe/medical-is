@@ -9,55 +9,61 @@
         %td.left
           ニックネーム
         %td.right
-          薬局ちゃん
+          = @user.nickname
       %tr
         %td.left
           メールアドレス
         %td.right
-          yakkyoku@yakkyoku.com
+          = @user.email
       %tr
         %td.left
           パスワード
         %td.right
-          *******
+          表示されません
     %br/
     %table.interviews_show__in__profiles
       %tr
         %td.left
           お名前（全角）
         %td.right
-          薬局 花子
+          = @profile.family_name
+          = @profile.first_name
       %tr
         %td.left
           お名前（カナ）
         %td.right
-          ヤッキョク ハナコ
+          = @profile.family_name_kana
+          = @profile.first_name_kana
       %tr
         %td.left
           生年月日
         %td.right
-          1991 / 12 / 6 
+          = @profile.birth
       %tr
         %td.left
           性別
         %td.right
-          女性
+          = @profile.sex
       %tr
         %td.left
           住所
         %td.right
-          大阪府 大阪市 北区中崎町 1丁目1-1 メディカルマンション101号室
+          = @profile.zip_code
+          = @profile.prefecuture
+          = @profile.city
+          = @profile.address
+          = @profile.building_name
       %tr
         %td.left
           電話番号
         %td.right
-          090-1234-5678
+          = @profile.telephone_number
     .interviews_show__in__edit
-      = link_to "登録情報を編集する" ,edit_profile_path
+      = link_to "登録情報を編集する" ,edit_profile_path(@user)
     .interviews_show__in__interviews
       %h1
         過去の問診票
       %br/
       = link_to "2020/7/5 記入分" ,root_path
     .interviews_show__in__back
-      = link_to "トップページに戻る" ,root_path
+      = link_to 'トップページに戻る', destroy_user_session_path, method: :delete

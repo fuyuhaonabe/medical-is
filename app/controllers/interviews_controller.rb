@@ -10,25 +10,43 @@ class InterviewsController < ApplicationController
     @interview = Interview.new
   end
 
+  def show
+    @user = current_user
+    if user_signed_in?
+      @profile = Profile.find_by(user_id: current_user.id)
+    else
+      redirect_to root_path
+    end
+  end
+
   def create
     @interview = Interview.new(interview_params)
     unless @interview.valid?
       render :new and return
     end
     @interview.save
-    redirect_to  complete_interviews_path(@user) and return
+    redirect_to  complete_interviews_path and return
   end
 
   def medical_history_string
-    params[:interview][:medical_history] = params[:interview][:medical_history].join("、")  # to string
+    if params[:interview][:medical_history].present?
+      params[:interview][:medical_history] = params[:interview][:medical_history].join("、")
+    end
   end
 
   def life_details_string
-    params[:interview][:life_details] = params[:interview][:life_details].join("、")  # to string
+    if params[:interview][:life_details].present?
+      params[:interview][:life_details] = params[:interview][:life_details].join("、")
+    end
   end
 
   def dosage_form_string
-    params[:interview][:dosage_form] = params[:interview][:dosage_form].join("、")  # to string
+    if params[:interview][:dosage_form].present?
+      params[:interview][:dosage_form] = params[:interview][:dosage_form].join("、")
+    end
+  end
+
+  def complete
   end
 
   private
@@ -52,7 +70,6 @@ class InterviewsController < ApplicationController
       :medical_history_etc).merge(user_id: current_user.id)
   end
 
-  def complete
-  end
+
 
 end
