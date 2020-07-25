@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     if @profile.nil?
       new_profile_path(@user)
     else
-      interview_path(@user)
+      mypage_interviews_path(@user)
     end
   end
 

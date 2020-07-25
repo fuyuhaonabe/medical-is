@@ -23,7 +23,7 @@ class ProfilesController < ApplicationController
       render :edit and return
     end
     @profile.update(profile_params)
-    redirect_to  interview_path and return
+    redirect_to  mypage_interviews_path and return
   end
 
   private

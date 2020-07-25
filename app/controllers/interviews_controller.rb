@@ -10,15 +10,6 @@ class InterviewsController < ApplicationController
     @interview = Interview.new
   end
 
-  def show
-    @user = current_user
-    if user_signed_in?
-      @profile = Profile.find_by(user_id: current_user.id)
-    else
-      redirect_to root_path
-    end
-  end
-
   def create
     @interview = Interview.new(interview_params)
     unless @interview.valid?
@@ -26,6 +17,9 @@ class InterviewsController < ApplicationController
     end
     @interview.save
     redirect_to  complete_interviews_path and return
+  end
+
+  def show
   end
 
   def medical_history_string
@@ -47,6 +41,11 @@ class InterviewsController < ApplicationController
   end
 
   def complete
+  end
+
+  def mypage
+    @user = current_user
+    @profile = Profile.find_by(user_id: current_user.id)
   end
 
   private
