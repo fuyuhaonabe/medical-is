@@ -28,7 +28,7 @@
           生年月日
           %span 必須
           %br/
-        = f.date_select :birth, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1), date_separator: '/ '
+        = f.text_field :birth, class: 'input', placeholder: '例）19911206 西暦で入力'
       .profilesform__in__sex
         %h1
           性別
