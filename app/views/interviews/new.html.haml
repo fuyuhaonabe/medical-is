@@ -1,7 +1,10 @@
 .header
   = render "/layouts/header"
-.breadcrumbs
-  = render "/layouts/breadcrumbs"
+.header2
+  ユーザー情報登録 > 
+  患者情報登録 > 
+  %label
+    問診票回答
 .interviewsform
   .interviewsform__in
     = form_for [@interview] do |f|

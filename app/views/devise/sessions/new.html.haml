@@ -1,7 +1,5 @@
 .header
   = render "/layouts/header"
-.breadcrumbs
-  = render "/layouts/breadcrumbs"
 .usersform
   .usersform__in
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|

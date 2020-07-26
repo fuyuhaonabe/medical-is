@@ -1,7 +1,10 @@
 .header
   = render "/layouts/header"
-.breadcrumbs
-  = render "/layouts/breadcrumbs"
+.header2
+  %label
+    ユーザー情報登録 
+  > 患者情報登録
+  > 問診票回答
 .usersform
   .usersform__in
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
