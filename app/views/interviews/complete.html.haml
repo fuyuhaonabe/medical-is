@@ -8,5 +8,4 @@
     %br/
     %br/
     = link_to "登録情報を確認する" ,mypage_interviews_path(id: current_user.id)
-
-    8秒くらいでTOPページに遷移させる！（個人情報だから）
+    = link_to 'トップページに戻る', destroy_user_session_path, method: :delete
