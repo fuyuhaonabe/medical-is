@@ -20,6 +20,8 @@ class InterviewsController < ApplicationController
   end
 
   def show
+    @user = current_user
+    @interviews = Interview.find(params[:id])
   end
 
   def medical_history_string
@@ -45,7 +47,9 @@ class InterviewsController < ApplicationController
 
   def mypage
     @user = current_user
+    # @interviews = Interview.find(params[:id])
     @profile = Profile.find_by(user_id: current_user.id)
+    @interviews = Interview.where(user_id:current_user.id).order("created_at DESC")
   end
 
   private

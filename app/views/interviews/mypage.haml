@@ -2,9 +2,9 @@
   = render "/layouts/header"
 .breadcrumbs
   = render "/layouts/breadcrumbs"
-.interviews_show
-  .interviews_show__in
-    %table.interviews_show__in__users
+.mypage
+  .mypage__in
+    %table.mypage__in__users
       %tr
         %td.left
           ニックネーム
@@ -21,7 +21,7 @@
         %td.right
           表示されません
     %br/
-    %table.interviews_show__in__profiles
+    %table.mypage__in__profiles
       %tr
         %td.left
           お名前（全角）
@@ -58,12 +58,15 @@
           電話番号
         %td.right
           = @profile.telephone_number
-    .interviews_show__in__edit
+    .mypage__in__edit
       = link_to "登録情報を編集する" ,edit_profile_path(@user)
-    .interviews_show__in__interviews
+    .mypage__in__interviews
       %h1
         過去の問診票
       %br/
-      = link_to "2020/7/5 記入分" ,root_path
-    .interviews_show__in__back
+      - @interviews.each do |i|
+        %h2
+          ●
+          = link_to i.created_at.strftime('%Y/%m/%d')+"  入力分",interview_path(i.id)
+    .mypage__in__back
       = link_to 'トップページに戻る', destroy_user_session_path, method: :delete

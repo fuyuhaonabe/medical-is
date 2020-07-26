@@ -4,66 +4,81 @@
   = render "/layouts/breadcrumbs"
 .interviews_show
   .interviews_show__in
-    %table.interviews_show__in__users
-      %tr
-        %td.left
-          ニックネーム
-        %td.right
-          = @user.nickname
-      %tr
-        %td.left
-          メールアドレス
-        %td.right
-          = @user.email
-      %tr
-        %td.left
-          パスワード
-        %td.right
-          表示されません
+    = @interviews.created_at.strftime('%Y/%m/%d')+"  入力分"
     %br/
-    %table.interviews_show__in__profiles
+    %br/
+    %table.interviews_show
       %tr
         %td.left
-          お名前（全角）
+          診断名
         %td.right
-          = @profile.family_name
-          = @profile.first_name
+          = @interviews.diagnosis
       %tr
         %td.left
-          お名前（カナ）
+          副作用歴（薬の名前）
         %td.right
-          = @profile.family_name_kana
-          = @profile.first_name_kana
+          = @interviews.se_medicine
       %tr
         %td.left
-          生年月日
+          副作用歴（症状）
         %td.right
-          = @profile.birth
+          = @interviews.se_symptom
       %tr
         %td.left
-          性別
+          アレルギー
         %td.right
-          = @profile.sex
+          = @interviews.allergy
       %tr
         %td.left
-          住所
+          現病歴・既往歴
         %td.right
-          = @profile.zip_code
-          = @profile.prefecuture
-          = @profile.city
-          = @profile.address
-          = @profile.building_name
+          = @interviews.medical_history
+          = @interviews.medical_history_etc
       %tr
         %td.left
-          電話番号
+          現在服用中のサプリメント
         %td.right
-          = @profile.telephone_number
-    .interviews_show__in__edit
-      = link_to "登録情報を編集する" ,edit_profile_path(@user)
-    .interviews_show__in__interviews
-      %h1
-        過去の問診票
-      %br/
-      = link_to "2020/7/5 記入分" ,root_path
+          = @interviews.supplement
+      %tr
+        %td.left
+          生活特記
+        %td.right
+          = @interviews.life_details
+      %tr
+        %td.left
+          飲酒
+        %td.right
+          = @interviews.drinking
+      %tr
+        %td.left
+          喫煙
+        %td.right
+          = @interviews.smoking
+      %tr
+        %td.left
+          服用不可な剤形
+        %td.right
+          = @interviews.dosage_form
+      %tr
+        %td.left
+          妊娠の有無
+        %td.right
+          = @interviews.pregnancy
+      %tr
+        %td.left
+          授乳中の有無
+        %td.right
+          = @interviews.breastfeeding
+      %tr
+        %td.left
+          小児の体重
+        %td.right
+          = @interviews.child_weight
+      %tr
+        %td.left
+          ジェネリック可否
+        %td.right
+          = @interviews.generic
+
     .interviews_show__in__back
-      = link_to 'トップページに戻る', destroy_user_session_path, method: :delete
+      = link_to '一覧に戻る', mypage_interviews_path
