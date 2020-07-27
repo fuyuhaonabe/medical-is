@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       get :complete
       get :mypage
       get :adminpage
+      get :search
     end
   end
   
