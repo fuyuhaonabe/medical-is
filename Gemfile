@@ -59,6 +59,7 @@ gem 'pry-rails'
 gem 'font-awesome-sass'
 gem 'rails_admin'
 gem 'cancan'
+gem 'kaminari'
 
 group :production do
   gem 'pg'
