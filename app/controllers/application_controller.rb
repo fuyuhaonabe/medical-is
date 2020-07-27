@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
-    if user_signed_in? && current_user.id == 9
+    if user_signed_in? && current_user.id == 1
       adminpage_interviews_path
     else
       @user = current_user

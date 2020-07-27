@@ -54,7 +54,7 @@ class InterviewsController < ApplicationController
   end
 
   def adminpage
-    if user_signed_in? && current_user.id == 9
+    if user_signed_in? && current_user.id == 1
       @user = User.joins(:interviews, :profile).order("created_at DESC").page(params[:page]).per(13)
       # @interview = Interview.all.order("created_at DESC")
     else
@@ -63,7 +63,7 @@ class InterviewsController < ApplicationController
   end
 
   def search
-    if user_signed_in? && current_user.id == 9
+    if user_signed_in? && current_user.id == 1
       if params[:first_name].present?
         @user = User.where('name LIKE ?', "%#{params[:first_name]}%").joins(:interviews, :profile).order("created_at DESC").page(params[:page]).per(13)
       else
