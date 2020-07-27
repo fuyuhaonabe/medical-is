@@ -1,0 +1,21 @@
+.admin
+  .admin__header
+    = render "/layouts/header"
+  .admin__search
+    %input(type="text" placeholder="キーワードから探す" class="search_input")
+    %button(type="submit" class="search_btn")
+      = icon('fa', 'search')
+  .admin__in
+    %table.mypage__in__profiles
+      - @user.each do |u|
+        %tr
+          %td.left
+            = u.created_at.strftime('%Y/%m/%d')
+          %td.right
+            = link_to interview_path(u.id) do
+              = u.profile.family_name
+              = u.profile.first_name
+              (
+              = u.profile.family_name_kana
+              = u.profile.first_name_kana
+              )

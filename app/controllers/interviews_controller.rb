@@ -52,6 +52,11 @@ class InterviewsController < ApplicationController
     @interviews = Interview.where(user_id:current_user.id).order("created_at DESC")
   end
 
+  def adminpage
+    @user = User.joins(:interviews, :profile).order("created_at DESC")
+    # @interview = Interview.all.order("created_at DESC")
+  end
+
   private
 
   def interview_params

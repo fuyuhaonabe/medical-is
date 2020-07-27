@@ -35,5 +35,6 @@ class Profile < ApplicationRecord
   format: { with: /\A[0-9]+\z/ }
 
   belongs_to :user
+  has_many :interviews
 
 end

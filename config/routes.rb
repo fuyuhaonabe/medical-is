@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     collection do
       get :complete
       get :mypage
+      get :adminpage
     end
   end
   

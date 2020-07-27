@@ -20,5 +20,6 @@ class User < ApplicationRecord
   format: { with: /\A[a-z0-9]+\z/i }  # 半角英数字のみ
 
   has_one :profile
+  has_many :interviews
 
 end

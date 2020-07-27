@@ -1,0 +1,32 @@
+.admin {
+  &__header {
+  }
+  &__search {
+    text-align: center;
+    margin: 15px;
+    .search_input {
+      width: 400px;
+      height: 45px;
+    }
+    .search_btn {
+      width: 50px;
+      height: 50px;
+    }
+  }
+  &__in {
+    width: 700px;
+    margin: auto;
+    table {
+      width: 100%;
+      border-collapse:  collapse;
+      td {
+        border: solid 1px;
+        padding: 5px;
+      }
+      td.left {
+        background-color: rgb(182, 207, 240);
+        width: 150px;
+      }
+    }
+  }
+}
