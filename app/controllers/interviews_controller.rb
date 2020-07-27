@@ -21,6 +21,7 @@ class InterviewsController < ApplicationController
 
   def show
     @user = current_user
+    @profile = Profile.find_by(user_id: current_user.id)
     @interviews = Interview.find(params[:id])
   end
 
@@ -47,7 +48,6 @@ class InterviewsController < ApplicationController
 
   def mypage
     @user = current_user
-    # @interviews = Interview.find(params[:id])
     @profile = Profile.find_by(user_id: current_user.id)
     @interviews = Interview.where(user_id:current_user.id).order("created_at DESC")
   end
