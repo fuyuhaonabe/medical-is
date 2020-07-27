@@ -14,8 +14,12 @@
     }
   }
   &__in {
-    width: 700px;
+    width: 500px;
     margin: auto;
+    a {
+      text-decoration: none;
+      color: rgb(33, 69, 136);
+    }
     table {
       width: 100%;
       border-collapse:  collapse;
@@ -27,6 +31,24 @@
         background-color: rgb(182, 207, 240);
         width: 150px;
       }
+    }
+  }
+  &__logout {
+    margin: 80px;
+    a {
+      display: block;
+      margin-top: 8px;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px solid rgb(86, 201, 105);
+      background: rgb(86, 201, 105);
+      color: #fff;
+      line-height: 40px;
+      text-align: center;
+      width: 300px;
+      padding: 5px;
+      border-radius: 4px;
+      text-decoration: none;
     }
   }
 }

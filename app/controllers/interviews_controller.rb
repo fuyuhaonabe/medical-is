@@ -20,8 +20,9 @@ class InterviewsController < ApplicationController
   end
 
   def show
-    @user = current_user
-    @profile = Profile.find_by(user_id: current_user.id)
+    # @user = current_user
+    # @profile = Profile.find_by(user_id: current_user.id)
+    @profile = Profile.find(params[:id])
     @interviews = Interview.find(params[:id])
   end
 
@@ -53,8 +54,24 @@ class InterviewsController < ApplicationController
   end
 
   def adminpage
-    @user = User.joins(:interviews, :profile).order("created_at DESC")
-    # @interview = Interview.all.order("created_at DESC")
+    if user_signed_in? && current_user.id == 9
+      @user = User.joins(:interviews, :profile).order("created_at DESC").page(params[:page]).per(13)
+      # @interview = Interview.all.order("created_at DESC")
+    else
+      redirect_to root_path
+    end
+  end
+
+  def search
+    if user_signed_in? && current_user.id == 9
+      if params[:first_name].present?
+        @user = User.where('name LIKE ?', "%#{params[:first_name]}%").joins(:interviews, :profile).order("created_at DESC").page(params[:page]).per(13)
+      else
+        @users = User.none
+      end
+    else
+      redirect_to root_path
+    end
   end
 
   private

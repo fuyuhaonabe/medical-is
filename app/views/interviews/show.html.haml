@@ -84,6 +84,9 @@
           ジェネリック可否
         %td.right
           = @interviews.generic
-
     .interviews_show__in__back
-      = link_to '一覧に戻る', mypage_interviews_path
+      - if user_signed_in? && current_user.id == 9
+        = link_to '問診票一覧に戻る', adminpage_interviews_path
+      - else
+        = link_to '一覧に戻る', mypage_interviews_path
+
