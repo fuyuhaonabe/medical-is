@@ -21,8 +21,8 @@ class InterviewsController < ApplicationController
 
   def show
     # @user = current_user
-    # @profile = Profile.find_by(user_id: current_user.id)
-    @profile = Profile.find(params[:id])
+    # @profile = Profile.find(params[:id])
+    @profile = Profile.find_by(user_id: current_user.id)
     @interviews = Interview.find(params[:id])
   end
 
