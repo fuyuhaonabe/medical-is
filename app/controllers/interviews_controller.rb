@@ -20,10 +20,8 @@ class InterviewsController < ApplicationController
   end
 
   def show
-    # @user = current_user
-    # @profile = Profile.find(params[:id])
-    @profile = Profile.find_by(user_id: current_user.id)
     @interviews = Interview.find(params[:id])
+    @profile = @interviews.profile
   end
 
   def medical_history_string
