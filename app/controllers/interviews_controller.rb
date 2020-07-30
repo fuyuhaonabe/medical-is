@@ -55,8 +55,8 @@ class InterviewsController < ApplicationController
 
   def adminpage
     if user_signed_in? && current_user.id == 1
-      @user = User.joins(:interviews, :profile).order("created_at DESC").page(params[:page]).per(13)
-      # @interview = Interview.all.order("created_at DESC")
+      @interviews = Interview.joins(:profile).order("created_at DESC").page(params[:page]).per(13)
+      # @interviews = Interview.all.order("created_at DESC").page(params[:page]).per(13)
     else
       redirect_to root_path
     end
@@ -92,7 +92,7 @@ class InterviewsController < ApplicationController
       :dosage_form,
       :life_details,
       :medical_history,
-      :medical_history_etc).merge(user_id: current_user.id)
+      :medical_history_etc).merge(user_id: current_user.id).merge(profile_id: current_user.id)
   end
 
 

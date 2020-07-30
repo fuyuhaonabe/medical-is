@@ -1,7 +1,10 @@
 class Interview < ApplicationRecord
+
+  belongs_to :user
+  belongs_to :profile
+
   validates :generic,
   presence: true
 
-  belongs_to :profile
-  belongs_to :user
+
 end

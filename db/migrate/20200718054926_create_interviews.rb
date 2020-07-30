@@ -2,10 +2,13 @@ class CreateInterviews < ActiveRecord::Migration[5.0]
   def change
     create_table :interviews do |t|
       t.references :user, foreign_key: true
+      t.references :profile, foreign_key: true
       t.string :diagnosis
       t.string :se_medicine
       t.string :se_symptom
+      t.string :allergy
       t.string :medical_history
+      t.string :medical_history_etc
       t.string :supplement
       t.string :life_details
       t.string :drinking

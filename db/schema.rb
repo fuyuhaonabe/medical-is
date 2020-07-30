@@ -14,10 +14,13 @@ ActiveRecord::Schema.define(version: 20200727053337) do
 
   create_table "interviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
+    t.integer  "profile_id"
     t.string   "diagnosis"
     t.string   "se_medicine"
     t.string   "se_symptom"
+    t.string   "allergy"
     t.string   "medical_history"
+    t.string   "medical_history_etc"
     t.string   "supplement"
     t.string   "life_details"
     t.string   "drinking"
@@ -29,8 +32,7 @@ ActiveRecord::Schema.define(version: 20200727053337) do
     t.string   "generic",             null: false
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.string   "allergy"
-    t.string   "medical_history_etc"
+    t.index ["profile_id"], name: "index_interviews_on_profile_id", using: :btree
     t.index ["user_id"], name: "index_interviews_on_user_id", using: :btree
   end
 
@@ -40,7 +42,7 @@ ActiveRecord::Schema.define(version: 20200727053337) do
     t.string   "first_name",       null: false
     t.string   "family_name_kana", null: false
     t.string   "first_name_kana",  null: false
-    t.date     "birth",            null: false
+    t.string   "birth",            null: false
     t.string   "sex"
     t.string   "zip_code"
     t.string   "prefecuture",      null: false
@@ -67,6 +69,7 @@ ActiveRecord::Schema.define(version: 20200727053337) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "interviews", "profiles"
   add_foreign_key "interviews", "users"
   add_foreign_key "profiles", "users"
 end
