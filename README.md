@@ -14,7 +14,7 @@
 ## profilesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
+|user_id|references|foreign_key: true|
 |family_name|string|null: false|
 |first_name|string|null: false|
 |family_name_kana|string|null: false|
@@ -26,14 +26,16 @@
 |city|string|null: false|
 |address|string|null: false|
 |building_name|string||
-|telephone_number|string|null: false|
+|telephone_number|string|
 ### Association
 - belongs_to :user
+- has_many :interviews
 
 ## interviewsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
+|user_id|integer|foreign_key: true|
+|profile_id|integer|foreign_key: true|
 |diagnosis|string||
 |se_medicine|string||
 |se_symptom|string||
@@ -51,3 +53,4 @@
 |generic|string|null: false|
 ### Association
 - belongs_to :user
+- belongs_to :profile
