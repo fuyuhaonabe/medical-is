@@ -2,13 +2,10 @@
   .admin__header
     = render "/layouts/header"
   .admin__search
-    -# = form_tag(search_interviews_path, method: 'get') do
-    -#   = label_tag(:name, 'Sarch weather')
-    -#   = text_field_tag(:name)
-    -#   = submit_tag('Search')
-    %input(type="text" placeholder="キーワードから探す" class="search_input")
-    %button(type="submit" class="search_btn")
-      = icon('fa', 'search')
+    = form_tag(search_interviews_path, method: 'get') do
+      -# = label_tag(:search)
+      = text_field_tag(:search, '', class: 'search_input', placeholder: '患者氏名検索（例：ヤッキョク ハナコ）')
+      = submit_tag('検索',class: "search_btn")
   .admin__in
     %table.mypage__in__profiles
       - @interviews.each do |i|

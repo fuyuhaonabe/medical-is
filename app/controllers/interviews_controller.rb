@@ -54,7 +54,6 @@ class InterviewsController < ApplicationController
   def adminpage
     if user_signed_in? && current_user.id == 1
       @interviews = Interview.joins(:profile).order("created_at DESC").page(params[:page]).per(13)
-      # @interviews = Interview.all.order("created_at DESC").page(params[:page]).per(13)
     else
       redirect_to root_path
     end
@@ -62,10 +61,10 @@ class InterviewsController < ApplicationController
 
   def search
     if user_signed_in? && current_user.id == 1
-      if params[:first_name].present?
-        @user = User.where('name LIKE ?', "%#{params[:first_name]}%").joins(:interviews, :profile).order("created_at DESC").page(params[:page]).per(13)
+      if
+        @interviews = Interview.joins(:profile).where('family_name_kana LIKE ? OR first_name_kana LIKE ?', "%#{params[:search]}%","%#{params[:search]}%").order("created_at DESC").page(params[:page]).per(13)
       else
-        @users = User.none
+        @interviews = Interview.all.joins(:profile).order("created_at DESC").page(params[:page]).per(13)
       end
     else
       redirect_to root_path

@@ -1,28 +1,20 @@
 .admin
   .admin__header
     = render "/layouts/header"
-  .admin__search
-    -# -# = form_tag(search_interviews_path, method: 'get') do
-    -# -#   = label_tag(:name, 'Sarch weather')
-    -# -#   = text_field_tag(:name)
-    -# -#   = submit_tag('Search')
-    -# %input(type="text" placeholder="キーワードから探す" class="search_input")
-    -# %button(type="submit" class="search_btn")
-    -#   = icon('fa', 'search')
   .admin__in
     %table.mypage__in__profiles
-      - @user.each do |u|
+      - @interviews.each do |i|
         %tr
           %td.left
-            = u.created_at.strftime('%Y/%m/%d')
+            = i.created_at.strftime('%Y/%m/%d')
           %td.right
-            = link_to interview_path(u.id) do
-              = u.profile.family_name
-              = u.profile.first_name
+            = link_to interview_path(i.id) do
+              = i.profile.family_name
+              = i.profile.first_name
               (
-              = u.profile.family_name_kana
-              = u.profile.first_name_kana
+              = i.profile.family_name_kana
+              = i.profile.first_name_kana
               )
-      = paginate @user
+          = paginate @interviews
   .admin__logout
-    = link_to '管理者画面を終了する', destroy_user_session_path, method: :delete
+    = link_to '患者一覧画面に戻る', adminpage_interviews_path
